@@ -1168,6 +1168,10 @@ module Yast
           :to   => "list <string>"
         )
       end
+      if Pam.DualStack
+        # bsc1190873
+        packages = Builtins.add(to_install, "samba-winbind-libs-32bit")
+      end
       { "install" => to_install, "remove" => [] }
     end
 

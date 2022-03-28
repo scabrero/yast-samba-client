@@ -1,4 +1,11 @@
 -------------------------------------------------------------------
+Mon Mar 28 14:36:11 UTC 2022 - Samuel Cabrero <scabrero@suse.de>
+
+- Install 32bit packages if the system has a dual PAM stack;
+  (bsc#1190873);
+- 4.4.4
+
+-------------------------------------------------------------------
 Fri Jan 28 09:30:17 UTC 2022 - Samuel Cabrero <scabrero@suse.de>
 
 - Switch from file based krb5 ccache to kernel keyring;

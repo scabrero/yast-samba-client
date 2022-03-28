@@ -45,6 +45,7 @@ module Yast
       Yast.import "SambaNetUtils"
       Yast.import "Stage"
       Yast.import "Wizard"
+      Yast.import "Pam"
 
       Yast.include include_target, "samba-client/helps.rb"
       Yast.include include_target, "samba-client/routines.rb"
@@ -761,6 +762,10 @@ module Yast
                 :from => "list",
                 :to   => "list <string>"
               )
+            end
+            if Pam.DualStack
+              # bsc1190873
+              packages = Builtins.add(packages, "samba-winbind-libs-32bit")
             end
             if Samba.PAMMountModified &&
                 Ops.greater_than(Builtins.size(Samba.GetPAMMountVolumes), 0)
